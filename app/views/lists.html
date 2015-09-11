@@ -1,0 +1,13 @@
+<form ng-submit="submitListItem()">
+    <input type="text" ng-model="listItem.name" />
+    <input type="text" ng-model="listItem.price"/>
+    <input type="submit" value="Add Item" />
+</form>
+
+<div ng-repeat="listItem in list">
+    <p> <b>Item: </b>{{ listItem.name }} <b>Price: </b>€{{ listItem.price }} </p>
+    <a ng-click="deleteItem(listItem)">Delete This Item</a> <br />
+    
+    <a ng-href="#/showlist/{{ listItem.$id }}">View this List</a>
+</div>
+
