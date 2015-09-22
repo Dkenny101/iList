@@ -29,6 +29,15 @@ var app = angular
         templateUrl: 'views/showlist.html',
         controller: 'listViewCtrl'   
       })
+    .when('/register', {
+        templateUrl: 'views/register.html',
+        controller: 'AuthCtrl',
+        resolve: {
+            user: function(Auth) {
+                return Auth.resolveUser();
+            }
+        }
+    })
       .otherwise({
         redirectTo: '/'
       });
