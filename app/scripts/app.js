@@ -31,12 +31,12 @@ var app = angular
       })
     .when('/register', {
         templateUrl: 'views/register.html',
-        controller: 'AuthCtrl',
-        resolve: {
-            user: function(Auth) {
-                return Auth.resolveUser();
-            }
-        }
+        controller: 'AuthCtrl'
+//        resolve: {
+//            user: function(Auth) {
+//                return Auth.resolveUser();
+//            }
+//        }
     })
       .otherwise({
         redirectTo: '/'

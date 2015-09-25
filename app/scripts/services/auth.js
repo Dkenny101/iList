@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('Auth', function ($firebaseSimpleLogin, FIREBASE_URL, $rootScope) {
+app.factory('Auth', function ($firebaseAuth, FIREBASE_URL, $rootScope) {
     //$rootScope is similar to $scope but is global
     var ref = new Firebase(FIREBASE_URL);
     var auth = $firebaseSimpleLogin(ref);
@@ -24,11 +24,11 @@ app.factory('Auth', function ($firebaseSimpleLogin, FIREBASE_URL, $rootScope) {
         user: {}
     };
     
-    $rootScope.$on('$firebaseSimpleLogin:login', function(e, user) {
+    $rootScope.$on('$firebaseAuth:login', function(e, user) {
         console.log('Logged in');
         angular.copy(user, Auth.user);
     });
-    $rootScope.$on('$firebaseSimpleLogin:logout', function() {
+    $rootScope.$on('$firebaseAuth:logout', function() {
         console.log('logged out');
         angular.copy({}, Auth.user);
     });
